@@ -84,29 +84,56 @@ class BinarySearchTree {
 
 
   preOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (currentNode !== null) {
+      console.log(currentNode.val)
+      this.preOrderTraversal(currentNode.left)
+      this.preOrderTraversal(currentNode.right)
+    }
   }
 
 
   inOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (currentNode !== null) {
+      this.inOrderTraversal(currentNode.left)
+      console.log(currentNode.val)
+      this.inOrderTraversal(currentNode.right)
+    }
   }
 
 
   postOrderTraversal(currentNode = this.root) {
-    // Your code here
+    if (currentNode !== null) {
+      this.postOrderTraversal(currentNode.left)
+      this.postOrderTraversal(currentNode.right)
+      console.log(currentNode.val)
+    }
   }
 
     // Breadth First Traversal - Iterative
   breadthFirstTraversal() {
-    // your code here
+    const queue = [this.root]
+
+    while (queue.length) {
+      let node = queue.shift()
+      console.log(node.val)
+      if (node.left) queue.push(node.left)
+      if (node.right) queue.push(node.right)
+    }
   }
 
   // Depth First Traversal - Iterative
   depthFirstTraversal() {
-    // your code here
+    const stack = [this.root]
+
+    while (stack.length) {
+      let node = stack.pop()
+      console.log(node.val)
+      if (node.left) stack.push(node.left)
+      if (node.right) stack.push(node.right)
+    }
+  }
 }
-}
+
 
 
 
